@@ -4,7 +4,8 @@ function emailVerification(field){
     var checkedValue = document.getElementById("checkedTest");
     console.log(field.value);
     var emailText = field.value;
-
+    
+    if(emailText != "")
     if(emailText.substring(0,emailText.indexOf("@") != ""))
     switch (emailText.substring(emailText.indexOf("@"),)) {
         case "@gmail.com":
@@ -48,4 +49,23 @@ function emailVerification(field){
         checkedValue.style.color = "red";
     }
     
+}
+
+function passVerification(field) {
+    var passText = field.value;
+    var underPassText = document.getElementById("passRequirements");
+
+    var symbols = ["@", "-", "_", "*", "/", "[", "]", "#", "&", "%", "$", "£", "!", "|", "\\","?"];
+
+    for(var i = 0; i < symbols.length; i++){
+        if (passText.indexOf(symbols[i]) != -1) {
+            underPassText.hidden = true;
+            console.log("Found Symbol");
+            break;
+        } else {
+            underPassText.textContent = "Insert at least one symbol";
+            underPassText.hidden = false;
+            console.log("Insert Symbols");
+        }
+    };
 }

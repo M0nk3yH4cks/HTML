@@ -18,7 +18,8 @@
         <input type="email" placeholder="Insert e-mail" onblur="emailVerification(this)">
         <i id="checkedTest"></i>
         <p>Password</p>
-        <input type="password" placeholder="Insert password">  
+        <input type="password" placeholder="Insert password" onblur="passVerification(this)">
+        <p id="passRequirements" hidden class="small"></p>  
         <p>Confirm Password</p>
         <input type="password" placeholder="Re-insert password">
     </div>

@@ -6,3 +6,10 @@ body{
 .loginContainer{
     padding: 20px;
 }
+
+.small{
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    color: grey;
+}
