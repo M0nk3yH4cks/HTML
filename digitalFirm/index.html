@@ -12,16 +12,19 @@
 <body>
     <h1>Account</h1>    
     <div class="loginContainer">      
-        <p>Username</p>
-        <input type="text" placeholder="Insert username">  
-        <p>E-mail</p>
-        <input type="email" placeholder="Insert e-mail" onblur="emailVerification(this)">
-        <i id="checkedTest"></i>
-        <p>Password</p>
-        <input type="password" placeholder="Insert password" onblur="passVerification(this)">
-        <p id="passRequirements" hidden class="small"></p>  
-        <p>Confirm Password</p>
-        <input type="password" placeholder="Re-insert password">
+         <p>Username</p>
+         <input type="text" placeholder="Insert username">  
+         <p>E-mail</p>
+         <input type="email" placeholder="Insert e-mail" onblur="emailVerification(this)">
+         <i id="checkedTest"></i>
+         <p>Password</p>
+         <input type="password" placeholder="Insert password" onblur="passVerification(this)" id="passField">
+         <i id="checkedPass"></i>
+         <p id="passRequirements" hidden class="small"></p>  
+         <p>Confirm Password</p>
+         <input type="password" placeholder="Re-insert password" onblur="repassVerification(this)">
+         <i id="checkedConPass"></i>
+         <p id="passMatching" hidden class="small"></p>  
     </div>
 </body>
 <script src="main.js"></script>
