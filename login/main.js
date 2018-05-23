@@ -12,15 +12,14 @@ function passVerification(field) {
 
     var symbols = ["@", "-", "_", "*", "/", "[", "]", "#", "&", "%", "$", "£", "!", "|", "\\","?"];
 
-    err.textContent = "";
     if(passText != ""){
         for(var i = 0; i < symbols.length; i++){
             if (passText.indexOf(symbols[i]) != -1) {
                 underPassText.textContent = "";
                 underPassText.hidden = true;
 
-                checkedPass.className = "fa fa-check";
-                checkedPass.style.color = "green";
+                checkedPass.className = "";
+                checkedPass.style.color = "";
 
                 stage = 0;
                 console.log("Found Symbol");
@@ -51,8 +50,8 @@ function passVerification(field) {
                     underPassText.textContent = "";
                     underPassText.hidden = true;
 
-                    checkedPass.className = "fa fa-check";
-                    checkedPass.style.color = "green";
+                    checkedPass.className = "";
+                    checkedPass.style.color = "";
                 }            
                 console.log("Found Number");
                 break;
@@ -74,5 +73,6 @@ function passVerification(field) {
         underPassText.hidden = true;
         checkedPass.className = "";
     }
+    errorCleaner.textContent = "";
 }
 

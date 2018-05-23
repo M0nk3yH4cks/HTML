@@ -5,6 +5,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">        
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="favicons/favicon-96x96.png"/>
         <style>
             body{
                 font-family: 'Roboto', sans-serif;
@@ -35,8 +36,10 @@
             </div>
 <?php
     session_start();
-    if(!empty($_SESSION["login_session"]))
-        echo '<font style="color:green">Loggato come: ' . $_SESSION["login_session"] . "</font>";
+    if(!empty($_SESSION["login_session"]) || !empty($_COOKIE['user']))
+        if(!empty($_SESSION['login_session']))
+            echo '<font style="color:green">Loggato come: ' . $_SESSION["login_session"] . " - PHP</font>";
+        else echo '<font style="color:green">Loggato come: ' . $_COOKIE["user"] . " - Cookie</font>";
     if(isset($_POST['username']) && $_POST['username'] != "" && $_POST['pass'] != ""){
             $servername = "127.0.0.1";
             $username = "root";
@@ -56,8 +59,8 @@
                 echo "Account Creato";
             } else {
                 //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                if(strstr(mysqli_error($conn), "duplicato")){
-                    echo "Username già esistente";
+                if(strstr(strtolower(mysqli_error($conn)), "dupli")){
+                    echo "<font id=\"err\">Username già esistente</font>";
                 }
             }
 
